@@ -30,6 +30,9 @@ app.use(session({
   cookie: { secure: false } // Set secure: true in production with HTTPS
 }));
 
+app.get('/main', (req, res) => {
+  res.render('main');
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
