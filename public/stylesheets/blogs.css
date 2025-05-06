@@ -213,3 +213,69 @@ a {
 a:hover {
     opacity: 0.8;
 }
+
+.all-blogs-sec {
+    display: flex;
+    justify-content: center;
+}
+
+.all-blogs-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.all-blog-wrapper,
+.secondary-blog-wrapper2 {
+    width: 377px;
+    height: 444px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+@media (max-width: 1440px) {
+    .all-blogs-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .all-blog-wrapper,
+    .secondary-blog-wrapper2 {
+        width: 377px;
+        height: 444px;
+    }
+}
+
+@media (max-width: 576px) {
+    .all-blog-wrapper,
+    .secondary-blog-wrapper2 {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        aspect-ratio: 377 / 444;
+        transition: all 0.3s ease;
+    }
+
+    .secondary-blog-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .secondary-blog-title,
+    .secondary-blog-text,
+    .author-date-label {
+        font-size: 0.9rem;
+    }
+}
+
+
+
