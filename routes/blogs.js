@@ -53,7 +53,6 @@ router.post('/new', requireAuth, function (req, res, next) {
         'Dec'
     ];
     const currentMonthString = months[currentMonth];
-    console.log(currentDay, currentMonthString, currentYear);
     const formatedDate = `${currentDay} ${currentMonthString} ${currentYear}`;
     const newBlog = {
         id: String(Date.now()),
@@ -68,6 +67,19 @@ router.post('/new', requireAuth, function (req, res, next) {
     blogs.unshift(newBlog);
     fs.writeFileSync(BLOGS_FILE, JSON.stringify(blogs, null, 2));
     res.redirect('/blogs');
+});
+
+router.get('/:blogId', requireAuth, function (req, res, next) {
+    const email = req.session.user.email;
+    const { blogId } = req.params
+
+    const data = fs.readFileSync(BLOGS_FILE)
+    const blogs = JSON.parse(data);
+
+    const blog = blogs.find(blog => blog.id === blogId);
+    console.log(blog);
+
+    res.render('blog', { email, blogs, blog });
 });
 
 module.exports = router;

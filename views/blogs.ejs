@@ -35,11 +35,11 @@
             <div>
                 <p class="author-date-label"><%= blogs[0].author %> • <%= blogs[0].formatedDate %></p>
             </div>
-            <a href="/blog/<%= blogs[0].id %>">
+            <a href="/blogs/<%= blogs[0].id %>">
                 <div class="main-blog-title-wrapper">
                     <h3 class="main-blog-title"><%= blogs[0].title %></h3>
                     <figure>
-                        <a href="/main"><img src="/images/arrow-up-right.svg" alt="arrow-up-right"></a>
+                        <img src="/images/arrow-up-right.svg" alt="arrow-up-right">
                     </figure>
                 </div>
             </a>
@@ -51,7 +51,7 @@
         </div>
         <div class="secondary-card">
             <div class="secondary-blog-wrapper">
-                <a href="/blog/<%= blogs[1].id %>">
+                <a href="/blogs/<%= blogs[1].id %>">
                     <figure>
                         <img class="secondary-blog-img" src="/images/thumbnails/1.png" alt="thumbnail">
                     </figure>
@@ -62,7 +62,7 @@
                         <p style="margin-top: 0" class="author-date-label"><%= blogs[1].author.slice(0, 8) %>
                             • <%= blogs[1].formatedDate %></p>
                     </div>
-                    <a href="/blog/<%= blogs[1].id %>">
+                    <a href="/blogs/<%= blogs[1].id %>">
                         <h3 class="secondary-blog-title">
                             <%= blogs[1].title.slice(0, 20) %>
                         </h3>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="secondary-blog-wrapper">
-                <a href="/blog/<%= blogs[2].id %>">
+                <a href="/blogs/<%= blogs[2].id %>">
                     <figure>
                         <img class="secondary-blog-img" src="/images/thumbnails/2.png" alt="thumbnail">
                     </figure>
@@ -81,7 +81,7 @@
                         <p style="margin-top: 0" class="author-date-label"><%= blogs[2].author.slice(0, 8) %>
                             • <%= blogs[2].formatedDate %></p>
                     </div>
-                    <a href="/blog/<%= blogs[2].id %>">
+                    <a href="/blogs/<%= blogs[2].id %>">
                         <h3 class="secondary-blog-title">
                             <%= blogs[2].title.slice(0, 20) %>
                         </h3>
@@ -91,169 +91,45 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-
-
-    <div class="recent-blogs-content2">
-        <div class="primary-card2">
-            <figure>
-                <a href="/blog/<%= blogs[3].id %>">
-                    <img class="primary-card-img" src="/images/thumbnails/wide/2.png" alt="thumbnail">
-                </a>
-            </figure>
-            <div>
-                <p class="author-date-label"><%= blogs[3].author %> • <%= blogs[3].formatedDate %></p>
-            </div>
-            <a href="/blog/<%= blogs[3].id %>">
-                <div class="main-blog-title-wrapper">
-                    <h3 class="main-blog-title"><%= blogs[3].title %></h3>
+    <div class="recent-blogs-content-below-card">
+        <figure class="recent-blogs-content-below-card-img-wrapper">
+            <img class="recent-blogs-content-below-card-img" src="/images/thumbnails/wide/2.png" alt="">
+        </figure>
+        <div class="recent-blogs-content-below-card-content">
+            <p style="margin-top: 0" class="author-date-label"><%= blogs[3].author %>
+                • <%= blogs[3].formatedDate %></p>
+            <a href="/blogs/<%= blogs[3].id %>">
+                <div class="recent-blogs-content-below-card-title-wrapper">
+                    <h3 class="recent-blogs-content-below-card-title"><%= blogs[3].title.slice(0, 20) %></h3>
                     <figure>
                         <img src="/images/arrow-up-right.svg" alt="arrow-up-right">
                     </figure>
                 </div>
             </a>
-            <div class="main-blog-text-wrapper">
-                <p class="main-blog-text">
-                    <%= blogs[3].description.slice(0, 260) %>...
-                </p>
-            </div>
+            <p class="recent-blogs-content-below-card-text">
+                <%= blogs[3].description.slice(0, 260) %>
+            </p>
         </div>
     </div>
 </section>
-
-<section class="all-blogs-sec">
-    <div class="all-blogs-card">
-        <div class="all-blog-wrapper">
-            <a href="/blog/<%= blogs[4].id %>">
+<section class="all-blogs container">
+    <h3 class="recent-blogs-title">All blog posts</h3>
+    <div class="all-blogs-grid">
+        <% blogs.splice(0, 6).forEach((blog, index)=>{ %>
+            <div class="all-blogs-card">
                 <figure>
-                    <img class="secondary-blog-img" src="/images/thumbnails/3.png" alt="thumbnail">
+                    <img class="all-blogs-img" src="/images/thumbnails/normal/<%= index %>.png" alt="thumbnail">
                 </figure>
-            </a>
-
-            <div>
                 <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[4].author.slice(0, 8) %>
-                        • <%= blogs[4].formatedDate %></p>
+                    <p class="author-date-label"><%= blog.author %> • <%= blog.formatedDate %></p>
                 </div>
-                <a href="/blog/<%= blogs[4].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[4].title.slice(0, 20) %>
-                    </h3>
+                <a href="/blogs/<%= blog.id %>">
+                    <h3 class="all-blogs-card-title"><%= blog.title.slice(0, 20) %> </h3>
                 </a>
-                <p class="secondary-blog-text"><%= blogs[4].description.slice(0, 136) %></p>
+                <p class="all-blogs-card-text"><%= blog.description.slice(0, 90) %> </p>
             </div>
-        </div>
-
-        <div class="secondary-blog-wrapper2">
-            <a href="/blog/<%= blogs[5].id %>">
-                <figure>
-                    <img class="secondary-blog-img" src="/images/thumbnails/4.png" alt="thumbnail">
-                </figure>
-            </a>
-            <div>
-                <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[5].author.slice(0, 8) %>
-                        • <%= blogs[5].formatedDate %></p>
-                </div>
-                <a href="/blog/<%= blogs[5].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[5].title.slice(0, 20) %>
-                    </h3>
-                </a>
-                <p class="secondary-blog-text"><%= blogs[5].description.slice(0, 136) %></p>
-            </div>
-        </div>
-
-        <div class="secondary-blog-wrapper2">
-            <a href="/blog/<%= blogs[6].id %>">
-                <figure>
-                    <img class="secondary-blog-img " src="/images/thumbnails/5.png" alt="thumbnail">
-                </figure>
-            </a>
-            <div>
-                <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[6].author.slice(0, 8) %>
-                        • <%= blogs[6].formatedDate %></p>
-                </div>
-                <a href="/blog/<%= blogs[6].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[6].title.slice(0, 20) %>
-                    </h3>
-                </a>
-                <p class="secondary-blog-text"><%= blogs[6].description.slice(0, 136) %></p>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </section>
-
-<section class="all-blogs-sec">
-    <div class="all-blogs-card">
-        <div class="all-blog-wrapper">
-            <a href="/blog/<%= blogs[7].id %>">
-                <figure>
-                    <img class="secondary-blog-img" src="/images/thumbnails/6.png" alt="thumbnail">
-                </figure>
-            </a>
-
-            <div>
-                <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[7].author.slice(0, 8) %>
-                        • <%= blogs[7].formatedDate %></p>
-                </div>
-                <a href="/blog/<%= blogs[7].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[7].title.slice(0, 20) %>
-                    </h3>
-                </a>
-                <p class="secondary-blog-text"><%= blogs[7].description.slice(0, 136) %></p>
-            </div>
-        </div>
-
-        <div class="secondary-blog-wrapper2">
-            <a href="/blog/<%= blogs[8].id %>">
-                <figure>
-                    <img class="secondary-blog-img " src="/images/thumbnails/7.png" alt="thumbnail">
-                </figure>
-            </a>
-            <div>
-                <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[8].author.slice(0, 8) %>
-                        • <%= blogs[8].formatedDate %></p>
-                </div>
-                <a href="/blog/<%= blogs[8].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[8].title.slice(0, 20) %>
-                    </h3>
-                </a>
-                <p class="secondary-blog-text"><%= blogs[8].description.slice(0, 135) %></p>
-            </div>
-        </div>
-
-        <div class="secondary-blog-wrapper2">
-            <a href="/blog/<%= blogs[9].id %>">
-                <figure>
-                    <img class="secondary-blog-img" src="/images/thumbnails/8.png" alt="thumbnail">
-                </figure>
-            </a>
-            <div>
-                <div>
-                    <p style="margin-top: 0" class="author-date-label"><%= blogs[9].author.slice(0, 8) %>
-                        • <%= blogs[9].formatedDate %></p>
-                </div>
-                <a href="/blog/<%= blogs[9].id %>">
-                    <h3 class="secondary-blog-title">
-                        <%= blogs[9].title.slice(0, 20) %>
-                    </h3>
-                </a>
-                <p class="secondary-blog-text"><%= blogs[9].description.slice(0, 135) %></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<script src="/javascripts/main.js"></script>
 </body>
 </html>
