@@ -24,17 +24,17 @@
 
             <div class="recent-blogs-content">
                 <% blogs.splice(0, 6).forEach((blog, index)=>{ %>
-                    <div>
+                    <div class="">
                         <figure>
-                            <img class="recent-blog-img" src="/images/thumbnails/normal/<%= index %>.png" alt="thumbnail">
+                            <img class="recent-blogs-img" src="/images/thumbnails/normal/<%= index %>.png" alt="thumbnail">
                         </figure>
                         <div>
-                            <p class=""><%= blog.author %> • <%= blog.formatedDate %></p>
+                            <p class="aouthor"><%= blog.author %> • <%= blog.formatedDate %></p>
                         </div>
                         <a href="/blogs/<%= blog.id %>">
-                            <h3 class=""><%= blog.title.slice(0, 20) %> </h3>
+                            <h3 class="blog-tittle"><%= blog.title.slice(0, 20) %> </h3>
                         </a>
-                        <p class=""><%= blog.description.slice(0, 90) %> </p>
+                        <p class="description"><%= blog.description.slice(0, 90) %> </p>
                     </div>
                 <% }) %>
             </div>
